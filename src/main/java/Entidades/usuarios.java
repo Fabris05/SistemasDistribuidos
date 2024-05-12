@@ -17,7 +17,6 @@ public class usuarios {
         pass="";
     }
     
-    
     public usuarios(String user, String pass) {
         this.user = user;
         this.pass = pass;

@@ -22,7 +22,7 @@
                 <form action="ValidarLogin" method="POST">
                     <div class="mt-4">
                         <label class="form-label">Usuario</label>
-                        <input type="text" class="form-control" name="txtUsuario" placeholder="Ingrese su usuario">
+                        <input type="text" class="form-control" name="txtUsuario" placeholder="Ingrese su usuario" autocomplete="off">
                     </div>
                     <div class="mt-4">
                         <label class="form-label">Contraseña</label>

@@ -4,9 +4,17 @@
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>Servlets.ClienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ClienteAgregarServlet</servlet-name>
+        <servlet-class>Servlets.ClienteAgregarServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
-        <url-pattern>/ClienteServlet</url-pattern>
+        <url-pattern>/Clientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteAgregarServlet</servlet-name>
+        <url-pattern>/Agregar_Cliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

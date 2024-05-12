@@ -36,7 +36,7 @@ public class ClienteServlet extends HttpServlet {
         //-- Almacenarlo en una variable
         request.setAttribute("listadoClientes", lista);
         //-- Invocar al JSP que pintara los datos de la variable
-        request.getRequestDispatcher("/clientes.jsp").forward(request, response);
+        request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
         
     }
 
@@ -44,7 +44,24 @@ public class ClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        request.getParameter("idCliente");
+        
+        //-- Eliminando el registro mediante la clase Data
+        String idTexto = request.getParameter("idCliente");
+        String id = idTexto;
+        
+        System.out.println("ID del cliente a eliminar: " + id); // Imprime el ID del cliente
+        
+        clienteData.Eliminar(id);
+        //-- Refrescar nuevamente la lista (ya no debe aparecer el elemento eliminado)
+        List<Cliente> lista = clienteData.findAll();
+        //-- Almacenarlo en una variable
+        request.setAttribute("listadoClientes", lista);
+        //-- Invocar al JSP que pintara los datos de la variable
+        request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
+      
+        
     }
 
     

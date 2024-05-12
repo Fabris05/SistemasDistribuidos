@@ -1,6 +1,6 @@
-Entidades\usuarios.class
-Controladores\ErrorLogin.class
 Conexion\ConexionDB.class
 Controladores\ValidarLogin.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class
+Entidades\usuarios.class
+Controladores\ErrorLogin.class
 pom\xml\sistemasdistribuidos\JAXRSConfiguration.class

@@ -10,6 +10,7 @@ import Interfaces.ClienteData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,8 @@ public class ClienteSQLData implements ClienteData {
               cliente.setApellidos(rs.getString("Apellidos"));
               cliente.setNombres(rs.getString("Nombres"));
               cliente.setDireccion(rs.getString("Direccion"));
-              cliente.setDNI(rs.getString("DNI"));
+              cliente.setTipoDocumento(rs.getString("TipoDocumento"));
+              cliente.setNumeroDocumento(rs.getString("numeroDocumento"));
               cliente.setTelefono(rs.getString("Telefono"));
               cliente.setMovil(rs.getString("Movil"));
               lista.add(cliente);
@@ -51,5 +53,97 @@ public class ClienteSQLData implements ClienteData {
       }
       return lista;
     }
+
+    // Guardar Cliente en la base de datos
     
+    @Override
+    public void Guardar(Cliente cliente) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            String urlInsert="INSERT INTO Cliente (Id_Cliente, Apellidos, Nombres, Direccion, TipoDocumento, numeroDocumento, Telefono, Movil)"
+                    + " VALUES (?,?,?,?,?,?,?, ?)";
+            PreparedStatement pstm=conn.prepareStatement(urlInsert);
+            String Id_Cliente=generarID();
+            pstm.setString(1, Id_Cliente);
+            pstm.setString(2, cliente.getApellidos());
+            pstm.setString(3, cliente.getNombres());
+            pstm.setString(4, cliente.getDireccion());
+            pstm.setString(5, cliente.getTipoDocumento());
+            pstm.setString(6, cliente.getNumeroDocumento());
+            pstm.setString(7, cliente.getTelefono());
+            pstm.setString(8, cliente.getMovil());
+            
+            pstm.executeUpdate();
+            System.out.println("Exitoso");
+        }catch (SQLException ex) {
+            System.err.print(ex);
+        }finally {
+          try {
+              if (conn != null) {
+                  conexiondb.Discconet();
+              }
+          } catch (Exception ex1) {
+              ex1.printStackTrace();
+          }
+      }   
+    }
+
+    @Override
+    public void Eliminar(String Id) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            String sql="DELETE FROM Cliente WHERE Id_CLiente=?";
+            PreparedStatement pstm=conn.prepareStatement(sql);
+            
+            pstm.setString(1, Id);
+            pstm.executeUpdate();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            try {
+              if (conn != null) {
+                  conexiondb.Discconet();
+              }
+          } catch (Exception ex1) {
+              ex1.printStackTrace();
+          }
+        }
+        
+        
+    }
+
+    @Override
+    public String generarID() {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        String Id_Cliente = "";
+        String sql = "SELECT MAX(CAST(SUBSTRING(Id_Cliente, 2) AS UNSIGNED)) AS MaxId FROM Cliente";
+        try {
+            PreparedStatement psmt = conn.prepareStatement(sql);
+            ResultSet rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                int maxId = rs.getInt("MaxId");
+                maxId++; // Incrementar el ID máximo en 1
+
+                // Formatear el nuevo ID
+                Id_Cliente = String.format("C%05d", maxId);
+            } else {
+                // Si no hay registros en la tabla, el primer ID será C00001
+                Id_Cliente = "C00001";
+            }
+
+            return Id_Cliente;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            // Cerrar la conexión aquí si es necesario
+        }
+        return Id_Cliente;
+    }
 }

@@ -14,19 +14,21 @@ public class Cliente {
     private String Apellidos;
     private String Nombres;
     private String Direccion;
-    private String DNI;
+    private String TipoDocumento;
+    private String numeroDocumento;
     private String Telefono;
     private String Movil;
 
     public Cliente() {
     }
 
-    public Cliente(String Id, String Apellidos, String Nombres, String Direccion, String DNI, String Telefono, String Movil) {
+    public Cliente(String Id, String Apellidos, String Nombres, String Direccion, String TipoDocumento, String numeroDocumento, String Telefono, String Movil) {
         this.Id = Id;
         this.Apellidos = Apellidos;
         this.Nombres = Nombres;
         this.Direccion = Direccion;
-        this.DNI = DNI;
+        this.TipoDocumento = TipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.Telefono = Telefono;
         this.Movil = Movil;
     }
@@ -63,12 +65,20 @@ public class Cliente {
         this.Direccion = Direccion;
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getTipoDocumento() {
+        return TipoDocumento;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setTipoDocumento(String TipoDocumento) {
+        this.TipoDocumento = TipoDocumento;
+    }
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public String getTelefono() {
