@@ -56,7 +56,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <a class="dropdown-item" href="../SistemasDistribuidos/Clientes">Mis clientes</a>
-                                <a class="dropdown-item" href="../SistemasDistribuidos/Cliente_Agregar.jsp">Añadir cliente</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Agregar_Cliente">Añadir cliente</a>
                             </div>
                         </li>
                         
