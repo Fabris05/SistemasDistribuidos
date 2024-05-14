@@ -13,6 +13,8 @@ import java.util.List;
  */
 public interface ClienteData {
     List<Cliente> findAll();
+    Cliente findById(String id);
+    void Editar(String id, Cliente cliente);
     void Guardar(Cliente cliente);
     void Eliminar(String Id);
     String generarID();

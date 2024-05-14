@@ -22,6 +22,16 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(String Apellidos, String Nombres, String Direccion, String TipoDocumento, String numeroDocumento, String Telefono, String Movil) {
+        this.Apellidos = Apellidos;
+        this.Nombres = Nombres;
+        this.Direccion = Direccion;
+        this.TipoDocumento = TipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.Telefono = Telefono;
+        this.Movil = Movil;
+    }
+    
     public Cliente(String Id, String Apellidos, String Nombres, String Direccion, String TipoDocumento, String numeroDocumento, String Telefono, String Movil) {
         this.Id = Id;
         this.Apellidos = Apellidos;
@@ -95,6 +105,11 @@ public class Cliente {
 
     public void setMovil(String Movil) {
         this.Movil = Movil;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "Apellidos=" + Apellidos + ", Nombres=" + Nombres + ", Direccion=" + Direccion + ", TipoDocumento=" + TipoDocumento + ", numeroDocumento=" + numeroDocumento + ", Telefono=" + Telefono + ", Movil=" + Movil + '}';
     }
     
     

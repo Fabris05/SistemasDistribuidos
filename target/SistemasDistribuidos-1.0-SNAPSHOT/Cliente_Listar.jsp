@@ -18,12 +18,13 @@
         <title>JMis Clientes</title>
             
         <script type="text/javascript">
-            function eliminarCliente(idCliente) {
-                // Establecer el valor del campo oculto con el ID del cliente
+            function ejecutarAccionConParams(idCliente, accionButton ) {
+                document.getElementById("accionButton").value = accionButton;
                 document.getElementById("idCliente").value = idCliente;
-                // Enviar el formulario
+                
                 document.getElementById("frm").submit();
                 console.log(idCliente);
+                console.log(accionButton);
             }
         </script>
     </head>
@@ -40,6 +41,7 @@
                 <h4>Mis clientes<span class="badge badge-secondary"></span></h4>
                 <form id="frm" name="frm" action="Clientes" method="POST" class="mt-4">
                     <input type="hidden" id="idCliente" name="idCliente"/>
+                    <input type="hidden" id="accionButton" name="accionButton"/>
                     <table class="table table-striped text-center">
 
                         <td>ID Cliente</td>
@@ -63,9 +65,9 @@
                                 <td>${p.telefono}</td>
                                 <td>${p.movil}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('ver', ${p.id});">Ver</button>&nbsp;
-                                    <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('editar', ${p.id});">Editar</button>&nbsp;
-                                    <button type="button" class="btn btn-danger btn-sm bi-delete" onclick="eliminarCliente('${p.id}');">Eliminar</button>
+                                    <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.id}','ver');">Ver</button>&nbsp;
+                                    <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.id}','editar');">Editar</button>&nbsp;
+                                    <button type="button" class="btn btn-danger btn-sm bi-delete" onclick="ejecutarAccionConParams('${p.id}', 'eliminar');">Eliminar</button>&nbsp;
                                 </td>
                             </tr>
                         </c:forEach>

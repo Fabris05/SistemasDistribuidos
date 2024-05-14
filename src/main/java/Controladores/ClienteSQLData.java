@@ -7,6 +7,7 @@ package Controladores;
 import Conexion.ConexionDB;
 import Entidades.Cliente;
 import Interfaces.ClienteData;
+import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -142,8 +143,73 @@ public class ClienteSQLData implements ClienteData {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            // Cerrar la conexión aquí si es necesario
+            conexiondb.Discconet();
         }
         return Id_Cliente;
+    }
+
+    @Override
+    public Cliente findById(String id) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        
+        try{
+            String sql=("SELECT * FROM Cliente WHERE Id_Cliente=?");
+            PreparedStatement psmt=conn.prepareStatement(sql);
+            psmt.setString(1, id);
+            
+            ResultSet rs=psmt.executeQuery();
+            
+            if(rs.next()){
+                Cliente cliente=new Cliente();
+                cliente.setId(id);
+                cliente.setNombres(rs.getString("Nombres"));
+                cliente.setApellidos(rs.getString("Apellidos"));
+                cliente.setTipoDocumento(rs.getString("TipoDocumento"));
+                cliente.setNumeroDocumento(rs.getString("numeroDocumento"));
+                cliente.setDireccion(rs.getString("Direccion"));
+                cliente.setTelefono(rs.getString("Telefono"));
+                cliente.setMovil(rs.getString("Movil"));
+                
+                return cliente;
+            }
+            
+        }catch(Exception ex){
+            System.err.println(ex);
+        }finally{
+            conexiondb.Discconet();
+        }
+        return null;
+    }
+
+    @Override
+    public void Editar(String id, Cliente cliente) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        
+        try{
+            
+            String sql="UPDATE Cliente SET Apellidos=?, Nombres=?, Direccion=?, "
+                    + "TipoDocumento=?, numeroDocumento=?, Telefono=?, Movil=? WHERE Id_CLiente=?";
+            
+            PreparedStatement psmt=conn.prepareStatement(sql);
+            psmt.setString(1, cliente.getApellidos());
+            psmt.setString(2, cliente.getNombres());
+            psmt.setString(3, cliente.getDireccion());
+            psmt.setString(4, cliente.getTipoDocumento());
+            psmt.setString(5, cliente.getNumeroDocumento());
+            psmt.setString(6, cliente.getTelefono());
+            psmt.setString(7, cliente.getMovil());
+            psmt.setString(8, id);
+            
+            psmt.executeUpdate();
+            
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }finally{
+            conexiondb.Discconet();
+        }
+        
+        
     }
 }

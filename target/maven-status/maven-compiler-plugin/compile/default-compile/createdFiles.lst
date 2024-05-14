@@ -1,6 +1,13 @@
+Interfaces\ClienteData.class
+Servlets\ClienteServlet.class
 Conexion\ConexionDB.class
+Entidades\Cliente.class
 Controladores\ValidarLogin.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class
+Servlets\ClienteEditarServlet.class
+Controladores\ClienteSQLData.class
 Entidades\usuarios.class
+Servlets\CerrarSesion.class
 Controladores\ErrorLogin.class
+Servlets\ClienteAgregarServlet.class
 pom\xml\sistemasdistribuidos\JAXRSConfiguration.class
