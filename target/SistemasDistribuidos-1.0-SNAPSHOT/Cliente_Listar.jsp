@@ -67,7 +67,7 @@
                                 <td>
                                     <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.id}','ver');">Ver</button>&nbsp;
                                     <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.id}','editar');">Editar</button>&nbsp;
-                                    <button type="button" class="btn btn-danger btn-sm bi-delete" onclick="ejecutarAccionConParams('${p.id}', 'eliminar');">Eliminar</button>&nbsp;
+                                    <button type="submit" class="btn btn-danger btn-sm bi-delete" onclick="if (confirm('¿Está seguro de eliminar este registro')) { ejecutarAccionConParams('${p.id}', 'eliminar'); } else { return false; }">&nbsp;Eliminar</button>
                                 </td>
                             </tr>
                         </c:forEach>
