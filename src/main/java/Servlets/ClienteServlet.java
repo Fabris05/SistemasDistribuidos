@@ -48,7 +48,7 @@ public class ClienteServlet extends HttpServlet {
         String idCliente=request.getParameter("idCliente");
         String action=request.getParameter("accionButton");
         
-        switch (action) {
+        switch (action){
             
             case "ver":
                 Cliente clienteVer=clienteData.findById(idCliente);
