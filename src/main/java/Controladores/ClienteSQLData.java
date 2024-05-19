@@ -112,9 +112,7 @@ public class ClienteSQLData implements ClienteData {
           } catch (Exception ex1) {
               ex1.printStackTrace();
           }
-        }
-        
-        
+        }   
     }
 
     @Override

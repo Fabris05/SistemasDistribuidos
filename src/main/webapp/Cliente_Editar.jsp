@@ -29,10 +29,10 @@
                     <div><!-- Formulario -->
                         <form action="ClienteEditarServlet" method="POST">
                             <div class="d-flex row gap-3 justify-content-center">
-
+                                <input type="hidden" name="txtIdCliente" value="${cliente.id}"/>
                                 <div class="col-md-2 mt-3">
                                     <label class="form-label fw-bold">ID Cliente</label>
-                                    <input class="form-control" name="txtIdCliente" value="${cliente.id}" disabled"/>
+                                    <input class="form-control" value="${cliente.id}" disabled/>
                                 </div>
 
                                 <div class="col-md-2 mt-3">

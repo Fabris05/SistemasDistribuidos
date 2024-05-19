@@ -5,7 +5,8 @@
 package Controladores;
 
 import Conexion.ConexionDB;
-import Entidades.usuarios;
+import Entidades.Usuario;
+import Interfaces.UsuarioData;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +24,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "ValidarLogin", urlPatterns = {"/ValidarLogin"})
 public class ValidarLogin extends HttpServlet {
+    
+    private UsuarioData usuarioData=new UsuarioSQLData();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,28 +49,33 @@ public class ValidarLogin extends HttpServlet {
 
         String user = request.getParameter("txtUsuario");
         String Pass = request.getParameter("txtPass");
+        String passHash=usuarioData.hashPassword(Pass);
         
-        usuarios userOb=new usuarios(user, Pass);
         
         try{
             
-            String sqlLogin="SELECT usuario, pass FROM Usuario WHERE usuario= ? and pass=?";
+            String sqlLogin="SELECT usuario, pass, nivel, estado FROM Usuario WHERE usuario= ?;";
             
             PreparedStatement pstmt=conn.prepareStatement(sqlLogin);
             pstmt.setString(1, user);
-            pstmt.setString(2, Pass);
             ResultSet rs=pstmt.executeQuery();
-            
+            System.out.println(passHash);
             if(rs.next()){
                 String passDB=rs.getString("pass");
+                String nivelUsuario=rs.getString("nivel");
+                String estadoUsuario=rs.getString("estado");
                 
-                if(userOb.getPass().equals(passDB)){
-                    usuarios nuser = new usuarios(user, Pass);
+                if(passHash.equals(passDB) && estadoUsuario.equals("activo")){
+                    Usuario nuser = new Usuario(user, nivelUsuario);
 
                     // Obtener la sesión y guardar el objeto usuarios en ella
                     HttpSession session = request.getSession();
                     session.setAttribute("user", nuser);
-
+                    
+                    String usuario = ((Usuario) session.getAttribute("user")).getPass();
+                    String nivel = ((Usuario) session.getAttribute("user")).getNivel();
+                    System.out.println("Usuario: " + usuario);
+                    System.out.println("Nivel: " + nivel);
                     // Redirigir a la página de inicio segura
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     

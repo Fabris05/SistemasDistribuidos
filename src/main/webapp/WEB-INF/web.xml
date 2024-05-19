@@ -8,6 +8,18 @@
         <servlet-name>ClienteAgregarServlet</servlet-name>
         <servlet-class>Servlets.ClienteAgregarServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>Servlets.UsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsuarioAgregarServlet</servlet-name>
+        <servlet-class>Servlets.UsuarioAgregarServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsuarioEditarServlet</servlet-name>
+        <servlet-class>Servlets.UsuarioEditarServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>ClienteAgregarServlet</servlet-name>
         <url-pattern>/Agregar_Cliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/Usuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioAgregarServlet</servlet-name>
+        <url-pattern>/Agregar_Usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioEditarServlet</servlet-name>
+        <url-pattern>/Editar_Usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

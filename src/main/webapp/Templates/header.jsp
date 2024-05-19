@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,6 +70,39 @@
                                 <a class="dropdown-item" href="../SistemasDistribuidos/Cliente_Agregar.jsp">Añadir producto</a>
                             </div>
                         </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                                Pedidos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Clientes">Mis productos</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Cliente_Agregar.jsp">Añadir producto</a>
+                            </div>
+                        </li>
+                        <!-- DIV a ocultar -->
+                        
+                        <c:choose>
+                            <c:when test="${user.nivel eq 'A'}">
+                                <!-- Botón "Usuarios" -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                                        Usuarios
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="../SistemasDistribuidos/Usuarios">Mis usuarios</a>
+                                        <a class="dropdown-item" href="../SistemasDistribuidos/Agregar_Usuario">Añadir usuario</a>
+                                    </div>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <!-- No mostrar el botón "Usuarios" -->
+                            </c:otherwise>
+                        </c:choose>
+
+                        
+                        
+                        
                     </ul>
                     <div class="d-flex col justify-content-end">
                         <form action="CerrarSesion" method="post">

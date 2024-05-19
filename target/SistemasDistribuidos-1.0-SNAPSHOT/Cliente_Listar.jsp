@@ -37,7 +37,7 @@
         <%@include file="../Templates/header.jsp"%>
         
         <div class=" d-flex container justify-content-center">
-            <div class="col-12 mt-4">
+            <div class="col-12 mt-5">
                 <h4>Mis clientes<span class="badge badge-secondary"></span></h4>
                 <form id="frm" name="frm" action="Clientes" method="POST" class="mt-4">
                     <input type="hidden" id="idCliente" name="idCliente"/>
