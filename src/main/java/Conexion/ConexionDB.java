@@ -19,7 +19,7 @@ public class ConexionDB {
 //    static String pass="12345";
     static String urlAiven="jdbc:mysql://ferreteria-integrador-fabricioslazar0503-58fe.f.aivencloud.com:12142/bd_rest";
     static String userAiven="avnadmin";
-    static String passAiven="AVNS_rWZcz8S1BKRPefCQLr-";
+    private String passAiven="AVNS_rWZcz8S1BKRPefCQLr-";
     
     
     protected Connection conn=null;
