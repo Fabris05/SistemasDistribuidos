@@ -11,6 +11,7 @@ Servlets\ClienteEditarServlet.class
 Controladores\ClienteSQLData.class
 Servlets\UsuarioEditarServlet.class
 Servlets\CerrarSesion.class
+Servlets\Login.class
 Controladores\ErrorLogin.class
 Servlets\UsuarioAgregarServlet.class
 Servlets\ClienteAgregarServlet.class

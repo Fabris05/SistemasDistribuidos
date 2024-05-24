@@ -19,7 +19,7 @@
                 <div class="d-flex justify-content-center">
                     <h1 class="justify-content-center">Inicio de Sesión</h1>
                 </div>
-                <form action="ValidarLogin" method="POST">
+                <form action="Login" method="POST">
                     <div class="mt-4">
                         <label class="form-label">Usuario</label>
                         <input type="text" class="form-control" name="txtUsuario" placeholder="Ingrese su usuario" autocomplete="off">
