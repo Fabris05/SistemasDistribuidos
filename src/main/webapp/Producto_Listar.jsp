@@ -15,9 +15,9 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <title>Mis Productos</title>
         <script type="text/javascript">
-            function ejecutarAccionConParams(idCliente, accionButton ) {
+            function ejecutarAccionConParams(codigoProducto, accionButton ) {
                 document.getElementById("accionButton").value = accionButton;
-                document.getElementById("idCliente").value = idCliente;
+                document.getElementById("codigoProducto").value = codigoProducto;
                 
                 document.getElementById("frm").submit();
                 console.log(idCliente);
@@ -38,34 +38,29 @@
             <div class="col-12 mt-5">
                 <h4>Mis Productos<span class="badge badge-secondary"></span></h4>
                 
-                <form id="frm" name="frm" action="#" method="POST" class="mt-4">
-                    <input type="hidden" id="idProducto" name="idProducto"/>
+                <form id="frm" name="frm" action="Productos" method="POST" class="mt-4">
+                    <input type="hidden" id="codigoProducto" name="codigoProducto"/>
                     <input type="hidden" id="accionButton" name="accionButton"/>
                     <table class="table table-striped text-center">
 
-                        <td>ID Producto</td>
+                        <td>Código Producto</td>
                         <td>Producto</td>
                         <td>Precio</td>
+                        <td>Stock</td>
                         <td>Caducidad</td>
-                        <td>Lote</td>
                         <td>Acciones</td>
-                        <!-- 
-                        <td>Direccion</td>
-                        <td>Telefono</td>
-                        <td>Movil</td>
-                        -->
-
-                        <c:forEach var="p" items="${requestScope.listadoClientes}">
+                        <c:forEach var="p" items="${requestScope.listadoProductos}">
+                            
                             <tr>
-                                <td>${p.id}</td>
-                                <td>${p.nombres}</td>
-                                <td>${p.apellidos}</td>
-                                <td>${p.tipoDocumento}</td>
-                                <td>${p.numeroDocumento}</td>
+                                <td>${p.codigoProducto}</td>
+                                <td>${p.nombreProducto}</td>
+                                <td>${p.precioProducto}</td>
+                                <td>${p.cantidadProducto}</td>
+                                <td>${p.caducidadProducto}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.id}','ver');">Ver</button>&nbsp;
-                                    <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.id}','editar');">Editar</button>&nbsp;
-                                    <button type="submit" class="btn btn-danger btn-sm bi-delete" onclick="if (confirm('¿Está seguro de eliminar este registro')) { ejecutarAccionConParams('${p.id}', 'eliminar'); } else { return false; }">Eliminar</button>
+                                    <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.codigoProducto}','ver');">Ver</button>&nbsp;
+                                    <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.codigoProducto}','editar');">Editar</button>&nbsp;
+                                    <button type="submit" class="btn btn-danger btn-sm bi-delete" onclick="if (confirm('¿Está seguro de eliminar este registro')) { ejecutarAccionConParams('${p.codigoProducto}', 'eliminar'); } else { return false; }">Eliminar</button>
                                 </td>
                             </tr>
                         </c:forEach>

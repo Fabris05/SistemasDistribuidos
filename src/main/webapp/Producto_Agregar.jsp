@@ -4,6 +4,7 @@
     Author     : fabri
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,11 +25,11 @@
                     <h4>Añadir nuevo producto</h4>
                     <div><!-- Formulario -->
                         
-                        <form action="#" method="post">
+                        <form action="Agregar_Producto" method="post">
                             <div class="d-flex row gap-3 justify-content-center">
                                 <div class="col-md-2 mt-3">
-                                    <label class="form-label fw-bold">ID Producto</label>
-                                    <input class="form-control" name="txtIDProducto" placeholder="ID del producto" disabled >
+                                    <label class="form-label fw-bold">Código Producto</label>
+                                    <input class="form-control" name="txtIDProducto" placeholder="Codigo del producto" disabled >
                                 </div>
 
                                 <div class="col-md-2 mt-3">
@@ -37,39 +38,50 @@
                                 </div>
 
                                 <div class="col-md-2 mt-3">
-                                    <label class="form-label fw-bold">Lote</label>
-                                    <input class="form-control" name="txtLoteProducto" placeholder="Lote del Producto" autocomplete="off">
+                                    <label class="form-label fw-bold">Cantidad</label>
+                                    <input class="form-control" name="txtCantidadProducto" placeholder="Lote del Producto" autocomplete="off">
                                 </div>
 
                                 <div class="col-md-2 mt-3">
                                     <label class="form-label fw-bold">Precio Venta S/.</label>
                                     <input class="form-control" name="txtPrecioProducto" placeholder="Precio del Producto" autocomplete="off">
                                 </div>
-
+                                
                                 <div class="col-md-2 mt-3">
                                     <label class="form-label fw-bold">Caducidad</label>
-                                    <input type="date" class="form-control" name="txtCaducidadProducto" placeholder="" autocomplete="off">
+                                    <input type="date" class="form-control" name="txtFechaCaducidad"/>
                                 </div>
 
                                 <div class="col-md-2 mt-3">
                                     <label class="form-label fw-bold">Categoría</label>
                                     <select class="form-select" name="cbxCategoriaProducto">
-                                        <option value="value">Categoría</option>
+                                        <c:forEach var="categoria" items="${listadoCategorias}">
+                                            <option value="${categoria.idCategoria}">${categoria.categoria}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 mt-3">
                                     <label class="form-label fw-bold">Proveedor</label>
                                     <select class="form-select" name="cbxProveedorProducto">
-                                        <option value="value">Proveedor</option>
+                                         <c:forEach var="proveedor" items="${listadoProveedores}">
+                                            <option value="${proveedor.idProveedor}">${proveedor.nombreProveedor}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
                                 <div class="col-md-2 mt-3">
-                                    <label class="form-label fw-bold">Alamcén</label>
+                                    <label class="form-label fw-bold">Almacén</label>
                                     <select class="form-select" name="cbxAlmacenProducto">
-                                        <option value="value">Almacén</option>
+                                        <c:forEach var="almacen" items="${listadoAlmacenes}">
+                                            <option value="${almacen.idAlmacen}">${almacen.almacen}</option>
+                                        </c:forEach>
                                     </select>
+                                </div>
+                                
+                                <div class="col-md-4 mt-3">
+                                    <label class="form-label fw-bold">Descripción</label>
+                                    <textarea class="form-control" name="txaDescripcionProducto" rows="2"></textarea>
                                 </div>
                             </div>
 

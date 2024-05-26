@@ -28,12 +28,12 @@
     </head>
     
     <body>
-        
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            
+
             <div class="container-fluid">
-                <div class="d-flex col justify-content-center">
-                    
+                <div class="d-flex col justify-content-start">
+
                 </div>
                 <!-- comment
                 <a class="navbar-brand">
@@ -44,13 +44,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 -->
- 
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContend">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#" style="color: white;">Menú Principal</a>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
                                 Cliente
@@ -60,17 +60,17 @@
                                 <a class="dropdown-item" href="../SistemasDistribuidos/Agregar_Cliente">Añadir cliente</a>
                             </div>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
                                 Productos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                <a class="dropdown-item" href="../SistemasDistribuidos/Clientes">Mis productos</a>
-                                <a class="dropdown-item" href="../SistemasDistribuidos/Cliente_Agregar.jsp">Añadir producto</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Productos">Mis productos</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Agregar_Producto">Añadir producto</a>
                             </div>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
                                 Pedidos
@@ -81,7 +81,6 @@
                             </div>
                         </li>
                         <!-- DIV a ocultar -->
-                        
                         <c:choose>
                             <c:when test="${user.nivel eq 'A'}">
                                 <!-- Botón "Usuarios" -->
@@ -98,13 +97,20 @@
                             <c:otherwise>
                                 <!-- No mostrar el botón "Usuarios" -->
                             </c:otherwise>
-                        </c:choose>
-
-                        
-                        
-                        
+                        </c:choose>  
                     </ul>
-                    <div class="d-flex col justify-content-end">
+                    <div class="d-flex col justify-content-end gap-3">
+                        <div class="d-flex row justify-content-end">
+                            <span class="badge bg-dark">${user.nombreUsuario}</span>
+                            <c:choose>
+                                <c:when test="${user.nivel eq 'A'}">
+                                    <span class="badge bg-dark">Administrador</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="badge bg-dark">Usuario</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
                         <form action="CerrarSesion" method="post">
                             <button class="btn btn-info btn-sm">
                                 <a class="btn btn-info btn-sm" href="../login.jsp" role="button" id="cerrarSesion">
@@ -116,12 +122,11 @@
                             </button>
                         </form>
                     </div>
-              
                 </div>
             </div>
-            
+
         </nav>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

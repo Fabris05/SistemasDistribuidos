@@ -24,6 +24,14 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Servlets.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductoServlet</servlet-name>
+        <servlet-class>Servlets.ProductoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductoAgregarServlet</servlet-name>
+        <servlet-class>Servlets.ProductoAgregarServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -48,11 +56,17 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
         <welcome-file>Login</welcome-file>
     </welcome-file-list>
-    
+    <servlet-mapping>
+        <servlet-name>ProductoServlet</servlet-name>
+        <url-pattern>/Productos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductoAgregarServlet</servlet-name>
+        <url-pattern>/Agregar_Producto</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

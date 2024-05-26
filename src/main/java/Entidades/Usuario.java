@@ -37,9 +37,10 @@ public class Usuario {
         this.estado = estado;
     }
     
-    public Usuario(String user, String nivel) {
+    public Usuario(String user, String nivel,String nombreUsuario ) {
         this.user = user;
         this.nivel = nivel;
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getIdUsuario() {

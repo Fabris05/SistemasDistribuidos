@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
         
         try{
             
-            String sqlLogin="SELECT usuario, pass, nivel, estado FROM Usuario WHERE usuario= ?;";
+            String sqlLogin="SELECT usuario, pass, nivel, estado, nombre FROM Usuario WHERE usuario= ?;";
             
             PreparedStatement pstmt=conn.prepareStatement(sqlLogin);
             pstmt.setString(1, user);
@@ -68,14 +68,15 @@ public class Login extends HttpServlet {
                 String passDB=rs.getString("pass");
                 String nivelUsuario=rs.getString("nivel");
                 String estadoUsuario=rs.getString("estado");
+                String nombreUsuario=rs.getString("nombre");
                 
                 if(passHash.equals(passDB) && estadoUsuario.equals("activo")){
-                    Usuario nuser = new Usuario(user, nivelUsuario);
+                    Usuario nuser = new Usuario(user, nivelUsuario, nombreUsuario);
 
                     // Obtener la sesión y guardar el objeto usuarios en ella
                     HttpSession session = request.getSession();
                     session.setAttribute("user", nuser);
-                    session.setMaxInactiveInterval(15);
+                    session.setMaxInactiveInterval(40);
                     
                     String usuario = ((Usuario) session.getAttribute("user")).getPass();
                     String nivel = ((Usuario) session.getAttribute("user")).getNivel();
