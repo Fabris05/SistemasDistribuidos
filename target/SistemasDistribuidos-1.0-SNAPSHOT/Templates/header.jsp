@@ -60,6 +60,18 @@
                                 <a class="dropdown-item" href="../SistemasDistribuidos/Agregar_Cliente">Añadir cliente</a>
                             </div>
                         </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                                Proveedores
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Proveedores">Mis Proveedores</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/Proveedor_Agregar">Añadir proveedor</a>
+                            </div>
+                     
+                        </li>
+
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">

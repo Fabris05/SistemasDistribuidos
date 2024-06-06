@@ -8,6 +8,7 @@ Servlets\UsuarioServlet.class
 Entidades\Cliente.class
 Interfaces\ProductoData.class
 Servlets\ClienteEditarServlet.class
+Servlets\Proveedor_Agregar.class
 Servlets\UsuarioEditarServlet.class
 Entidades\Categoria.class
 Servlets\CerrarSesion.class
@@ -18,6 +19,7 @@ Servlets\UsuarioAgregarServlet.class
 pom\xml\sistemasdistribuidos\JAXRSConfiguration.class
 Interfaces\ClienteData.class
 Entidades\Almacen.class
+Servlets\Proveedores.class
 Controladores\AlmacenSQLData.class
 Interfaces\AlmacenData.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class

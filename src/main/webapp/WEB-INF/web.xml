@@ -32,6 +32,10 @@
         <servlet-name>ProductoAgregarServlet</servlet-name>
         <servlet-class>Servlets.ProductoAgregarServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Proveedor_Agregar</servlet-name>
+        <servlet-class>Servlets.Proveedor_Agregar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -66,6 +70,10 @@
     <servlet-mapping>
         <servlet-name>ProductoAgregarServlet</servlet-name>
         <url-pattern>/Agregar_Producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proveedor_Agregar</servlet-name>
+        <url-pattern>/Proveedor_Agregar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

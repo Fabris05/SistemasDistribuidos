@@ -10,16 +10,30 @@ package Entidades;
  */
 public class Proveedor {
     private int idProveedor;
+    private String codigoProveedor;
     private String RUCProveedor;
     private String razonSocialProveedor;
     private String nombreProveedor;
     private String telefonoProveedor;
     private String emailProveedor;
     private String ubicacionProveedor;
+    private String descripcionProveedor;
 
     public Proveedor() {
     }
 
+    public Proveedor(String RUCProveedor, String razonSocialProveedor, String nombreProveedor, String telefonoProveedor, String emailProveedor, String ubicacionProveedor, String descripcionProveedor) {
+        this.RUCProveedor = RUCProveedor;
+        this.razonSocialProveedor = razonSocialProveedor;
+        this.nombreProveedor = nombreProveedor;
+        this.telefonoProveedor = telefonoProveedor;
+        this.emailProveedor = emailProveedor;
+        this.ubicacionProveedor = ubicacionProveedor;
+        this.descripcionProveedor = descripcionProveedor;
+    }
+    
+    
+    
     public int getIdProveedor() {
         return idProveedor;
     }
@@ -28,6 +42,15 @@ public class Proveedor {
         this.idProveedor = idProveedor;
     }
 
+    public String getCodigoProveedor() {
+        return codigoProveedor;
+    }
+
+    public void setCodigoProveedor(String codigoProveedor) {
+        this.codigoProveedor = codigoProveedor;
+    }
+    
+    
     public String getRUCProveedor() {
         return RUCProveedor;
     }
@@ -74,6 +97,14 @@ public class Proveedor {
 
     public void setUbicacionProveedor(String ubicacionProveedor) {
         this.ubicacionProveedor = ubicacionProveedor;
+    }
+
+    public String getDescripcionProveedor() {
+        return descripcionProveedor;
+    }
+
+    public void setDescripcionProveedor(String descripcionProveedor) {
+        this.descripcionProveedor = descripcionProveedor;
     }
     
     

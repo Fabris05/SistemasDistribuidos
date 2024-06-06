@@ -51,36 +51,23 @@ public class ClienteServlet extends HttpServlet {
         switch (action){
             
             case "ver":
+                
                 Cliente clienteVer=clienteData.findById(idCliente);
-                System.out.println("ID del cliente a ver: " + idCliente); // Imprime el ID del cliente
-                System.out.println("accion: " + action); // Imprime el ID del cliente
                 request.setAttribute("cliente", clienteVer);
                 request.getRequestDispatcher("/Cliente_Consultar.jsp").forward(request, response);
-                
                 break;
             case "editar":
+                
                 Cliente clienteEditar=clienteData.findById(idCliente);
-                System.out.println("ID del cliente a editar: " + idCliente); // Imprime el ID del cliente
-                System.out.println("accion: " + action); // Imprime el ID del cliente
                 request.setAttribute("cliente", clienteEditar);
                 request.getRequestDispatcher("/Cliente_Editar.jsp").forward(request, response);
-                
-//               request.getRequestDispatcher("/Cliente_Editar.jsp").forward(request, response);
                 break;
+                
             case "eliminar":
-                
-                // -- Lógica de Eliminar
-                
+
                 clienteData.Eliminar(idCliente);
-                
-                System.out.println("ID del cliente a eliminar: " + idCliente); // Imprime el ID del cliente
-                System.out.println("accion: " + action); // Imprime el ID del cliente
-                
-                //-- Refrescar nuevamente la lista (ya no debe aparecer el elemento eliminado)
                 List<Cliente> lista = clienteData.findAll();
-                //-- Almacenarlo en una variable
                 request.setAttribute("listadoClientes", lista);
-                //-- Invocar al JSP que pintara los datos de la variable
                 request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
                 break;
                 
