@@ -36,6 +36,14 @@
         <servlet-name>Proveedor_Agregar</servlet-name>
         <servlet-class>Servlets.Proveedor_Agregar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductoEditar</servlet-name>
+        <servlet-class>Servlets.ProductoEditar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProveedorEditar</servlet-name>
+        <servlet-class>Servlets.ProveedorEditar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -74,6 +82,14 @@
     <servlet-mapping>
         <servlet-name>Proveedor_Agregar</servlet-name>
         <url-pattern>/Proveedor_Agregar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductoEditar</servlet-name>
+        <url-pattern>/ProductoEditar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProveedorEditar</servlet-name>
+        <url-pattern>/ProveedorEditar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

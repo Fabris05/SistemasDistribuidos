@@ -6,6 +6,7 @@ Servlets\ProductoServlet.class
 Entidades\Producto.class
 Servlets\UsuarioServlet.class
 Entidades\Cliente.class
+Servlets\ProductoEditar.class
 Interfaces\ProductoData.class
 Servlets\ClienteEditarServlet.class
 Servlets\Proveedor_Agregar.class
@@ -21,6 +22,7 @@ Interfaces\ClienteData.class
 Entidades\Almacen.class
 Servlets\Proveedores.class
 Controladores\AlmacenSQLData.class
+Servlets\ProveedorEditar.class
 Interfaces\AlmacenData.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class
 Controladores\ProveedorSQLData.class

@@ -58,6 +58,9 @@ public class Proveedores extends HttpServlet {
                 request.getRequestDispatcher("/Views/Proveedor/Proveedor_Consultar.jsp").forward(request, response);
                 break;
             case "editar":
+                Proveedor proveedorEditar=proveedorData.findById(codigoProveedor);
+                request.setAttribute("proveedor", proveedorEditar);
+                request.getRequestDispatcher("/Views/Proveedor/Proveedor_Editar.jsp").forward(request, response);
                 break;
                 
             case "eliminar":

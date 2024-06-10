@@ -18,7 +18,14 @@
             function ejecutarAccionConParams(codigoProducto, accionButton ) {
                 document.getElementById("accionButton").value = accionButton;
                 document.getElementById("codigoProducto").value = codigoProducto;
-                
+                /*
+                if(accionButton==='editar'){
+                    var myModal = new bootstrap.Modal(document.getElementById('editModal'));
+                    myModal.show();
+                }else{
+                    document.getElementById("frm").submit();
+                }
+                */
                 document.getElementById("frm").submit();
                 console.log(idCliente);
                 console.log(accionButton);
@@ -32,8 +39,7 @@
     %>
     
     <body>
-        <%@include file="../Templates/header.jsp"%>
-        
+        <%@include file="/Templates/header.jsp"%>
         <div class=" d-flex container justify-content-center">
             <div class="col-12 mt-5">
                 <h4>Mis Productos<span class="badge badge-secondary"></span></h4>
@@ -59,7 +65,7 @@
                                 <td>${p.caducidadProducto}</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.codigoProducto}','ver');">Ver</button>&nbsp;
-                                    <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.codigoProducto}','editar');">Editar</button>&nbsp;
+                                    <button type="button" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.codigoProducto}','editar');">Editar</button>&nbsp;
                                     <button type="submit" class="btn btn-danger btn-sm bi-delete" onclick="if (confirm('¿Está seguro de eliminar este registro')) { ejecutarAccionConParams('${p.codigoProducto}', 'eliminar'); } else { return false; }">Eliminar</button>
                                 </td>
                             </tr>
@@ -68,5 +74,9 @@
                 </form>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+        <%@include file="/Views/Producto/Producto_Editar_Modal.jsp" %>
     </body>
 </html>

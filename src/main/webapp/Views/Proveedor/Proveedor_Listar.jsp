@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Proveedores</title>
+        <title>Mis Proveedores</title>
         <script type="text/javascript">
             function ejecutarAccionConParams(codigoProveedor, accionButton ) {
                 document.getElementById("accionButton").value = accionButton;
@@ -30,7 +30,7 @@
                     <input type="hidden" id="accionButton" name="accionButton"/>
                     <table class="table table-striped text-center">
 
-                        <td>Código Proveedor</td>
+                        <td>Código</td>
                         <td>RUC</td>
                         <td>Proveedor</td>
                         <td>Teléfono</td>
@@ -55,5 +55,5 @@
                 </form>
             </div>
         </div>
-    </body>
+    </body>  
 </html>

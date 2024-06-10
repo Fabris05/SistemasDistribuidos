@@ -20,15 +20,17 @@ public interface ProductoData {
     void Eliminar(String Id);
     String generarID();
     Date parseDate(String date);
-    public final String BUSCAR_PRODUCTOS_TABLA="SELECT CodigoProducto, nombreProducto, precioProducto, cantidadProducto, caducidadProducto "
+    public final String BUSCAR_PRODUCTOS_TABLA = "SELECT CodigoProducto, nombreProducto, precioProducto, cantidadProducto, caducidadProducto "
             + "FROM Producto;";
-    public final String BUSCAR_PRODUCTOS_ID = "SELECT CodigoProducto, nombreProducto, cantidadProducto, precioProducto, caducidadProducto, Proveedor.proveedor as 'Proveedor', Categoria.categoria as 'Categoria', Almacen.almacen as 'Almacen', descripcionProducto FROM Producto "
+    public final String BUSCAR_PRODUCTOS_ID = "SELECT CodigoProducto, nombreProducto, cantidadProducto, precioProducto, caducidadProducto, Proveedor.proveedor as 'Proveedor', Categoria.categoria as 'Categoria', Almacen.almacen as 'Almacen', descripcionProducto, descripcionProducto, idProveedorProducto, idCategoriaProducto, idAlmacenProducto FROM Producto "
             + "INNER JOIN Proveedor ON  Producto.idProveedorProducto=Proveedor.Id_Proveedor "
             + "INNER JOIN Categoria ON Producto.idCategoriaProducto = Categoria.idCategoria "
             + "INNER JOIN Almacen ON Producto.idAlmacenProducto = Almacen.idAlmacen "
             + "WHERE CodigoProducto=? ;";
     public final String AGREGAR_PRODUCTO = "INSERT INTO Producto (CodigoProducto, nombreProducto, cantidadProducto, precioProducto, caducidadProducto, idProveedorProducto, idCategoriaProducto, idAlmacenProducto, descripcionProducto) "
             + "VALUES (?, ?, ?, ?, ?, ?,?,?,?);";
-    public final String ELIMINAR_PRODUCTO="DELETE FROM Producto WHERE CodigoProducto=?";
+    public final String EDITAR_PRODUCTO = "UPDATE Producto SET nombreProducto = ?, cantidadProducto = ?, precioProducto =?,  caducidadProducto =?, idProveedorProducto =?, idCategoriaProducto =?, idAlmacenProducto =?, descripcionProducto=? "
+            + "WHERE CodigoProducto=?;";
+    public final String ELIMINAR_PRODUCTO = "DELETE FROM Producto WHERE CodigoProducto=?";
     public final String BUSCAR_MAXIMO_CODIGO = "SELECT MAX(CAST(SUBSTRING(CodigoProducto, 2) AS UNSIGNED)) AS MaxCode FROM Producto;";
 }

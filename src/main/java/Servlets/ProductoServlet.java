@@ -4,9 +4,18 @@
  */
 package Servlets;
 
+import Controladores.AlmacenSQLData;
+import Controladores.CategoriaSQLData;
 import Controladores.ProductoSQLData;
+import Controladores.ProveedorSQLData;
+import Entidades.Almacen;
+import Entidades.Categoria;
 import Entidades.Producto;
+import Entidades.Proveedor;
+import Interfaces.AlmacenData;
+import Interfaces.CategoriaData;
 import Interfaces.ProductoData;
+import Interfaces.ProveedorData;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -21,6 +30,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ProductoServlet extends HttpServlet {
 
     private ProductoData productoData = new ProductoSQLData();
+    private AlmacenData almacenData=new AlmacenSQLData();
+    private CategoriaData categoriaData=new CategoriaSQLData();
+    private ProveedorData proveedorData=new ProveedorSQLData();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,25 +68,25 @@ public class ProductoServlet extends HttpServlet {
                 
                 break;
             case "editar":
-//                Cliente clienteEditar=clienteData.findById(idCliente);
-//                System.out.println("ID del cliente a editar: " + idCliente); // Imprime el ID del cliente
-//                System.out.println("accion: " + action); // Imprime el ID del cliente
-//                request.setAttribute("cliente", clienteEditar);
-//                request.getRequestDispatcher("/Cliente_Editar.jsp").forward(request, response);
+                Producto productoEditar = productoData.findById(idProducto);
                 
-//               request.getRequestDispatcher("/Cliente_Editar.jsp").forward(request, response);
+                List<Proveedor> listaProveedores = proveedorData.findProveedores();
+                request.setAttribute("listadoProveedores", listaProveedores);
+
+                List<Categoria> listaCategorias = categoriaData.findCategorias();
+                request.setAttribute("listadoCategorias", listaCategorias);
+
+                List<Almacen> listaAlmacen = almacenData.findAlmacenes();
+                request.setAttribute("listadoAlmacenes", listaAlmacen);
+                
+                request.setAttribute("producto", productoEditar);
+                request.getRequestDispatcher("/Views/Producto/Producto_Editar.jsp").forward(request, response);
+//               response.sendRedirect("/SistemasDistribuidos/ProductoEditar");
                 break;
             case "eliminar":
-                
-                // -- Lógica de Eliminar
-                
                 productoData.Eliminar(idProducto);
-//                
-                //-- Refrescar nuevamente la lista (ya no debe aparecer el elemento eliminado)
                 List<Producto> lista = productoData.findAll();
-                //-- Almacenarlo en una variable
                 request.setAttribute("listadoProductos", lista);
-                //-- Invocar al JSP que pintara los datos de la variable
                 request.getRequestDispatcher("/Producto_Listar.jsp").forward(request, response);
                 break;
                 

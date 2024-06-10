@@ -23,7 +23,6 @@ public class Producto {
     private int idProveedorProducto;
     private int idAlmacenProducto;
     private int idCategoriaProducto;
-    
     private String descripcionProducto;
 
     public Producto() {
@@ -40,6 +39,19 @@ public class Producto {
         this.idCategoriaProducto = idCategoriaProducto;
         this.descripcionProducto = descripcionProducto;
     }
+
+    public Producto(String nombreProducto, int cantidadProducto, double precioProducto, Date caducidadProducto, int idProveedorProducto, int idAlmacenProducto, int idCategoriaProducto, String descripcionProducto) {
+        this.nombreProducto = nombreProducto;
+        this.cantidadProducto = cantidadProducto;
+        this.precioProducto = precioProducto;
+        this.caducidadProducto = caducidadProducto;
+        this.idProveedorProducto = idProveedorProducto;
+        this.idAlmacenProducto = idAlmacenProducto;
+        this.idCategoriaProducto = idCategoriaProducto;
+        this.descripcionProducto = descripcionProducto;
+    }
+
+   
     
     
     

@@ -67,9 +67,7 @@ public class ProductoSQLData implements ProductoData{
         try{
             PreparedStatement psmt=conn.prepareStatement(BUSCAR_PRODUCTOS_ID);
             psmt.setString(1, id);
-            
             ResultSet rs=psmt.executeQuery();
-            
             if(rs.next()){
                 Producto producto=new Producto();
                 producto.setCodigoProducto(rs.getString("CodigoProducto"));
@@ -81,6 +79,9 @@ public class ProductoSQLData implements ProductoData{
                 producto.setCategoriaProducto(rs.getString("Categoria"));
                 producto.setAlmacenProducto(rs.getString("Almacen"));
                 producto.setDescripcionProducto(rs.getString("descripcionProducto"));
+                producto.setIdProveedorProducto(rs.getInt("idProveedorProducto"));
+                producto.setIdCategoriaProducto(rs.getInt("idCategoriaProducto"));
+                producto.setIdAlmacenProducto(rs.getInt("idAlmacenProducto"));
                 return producto;
             }
         }catch(SQLException ex){
@@ -130,7 +131,26 @@ public class ProductoSQLData implements ProductoData{
 
     @Override
     public void Editar(String id, Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        try{
+           PreparedStatement pstm= conn.prepareStatement(EDITAR_PRODUCTO);
+           pstm.setString(1, producto.getNombreProducto());
+           pstm.setInt(2, producto.getCantidadProducto());
+           pstm.setDouble(3, producto.getPrecioProducto());
+           pstm.setDate(4, producto.getCaducidadProducto());
+           pstm.setInt(5, producto.getIdProveedorProducto());
+           pstm.setInt(6, producto.getIdCategoriaProducto());
+           pstm.setInt(7, producto.getIdAlmacenProducto());
+           pstm.setString(8, producto.getDescripcionProducto());
+           pstm.setString(9, id);
+           
+           pstm.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
+        }
     }
 
     @Override

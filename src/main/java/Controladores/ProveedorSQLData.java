@@ -191,6 +191,28 @@ public class ProveedorSQLData implements ProveedorData{
         }
         return null;
     }
+
+    @Override
+    public void editarProveedor(String codigo, Proveedor proveedor) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        try{
+            PreparedStatement pstm=conn.prepareStatement(EDITAR_PROVEEDOR);
+            
+            pstm.setString(1, proveedor.getRUCProveedor());
+            pstm.setString(2, proveedor.getRazonSocialProveedor());
+            pstm.setString(3, proveedor.getNombreProveedor());
+            pstm.setString(4, proveedor.getTelefonoProveedor());
+            pstm.setString(5, proveedor.getEmailProveedor());
+            pstm.setString(6, proveedor.getUbicacionProveedor());
+            pstm.setString(7, proveedor.getDescripcionProveedor());
+            pstm.setString(8, codigo);
+            
+            pstm.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
     
     
 }
