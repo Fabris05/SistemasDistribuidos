@@ -33,12 +33,46 @@ public class CategoriaSQLData implements CategoriaData {
                 Categoria categoria=new Categoria();
                 categoria.setIdCategoria(rs.getInt("idCategoria"));
                 categoria.setCategoria(rs.getString("categoria"));
+                categoria.setDescripcionCategoria(rs.getString("descripcionCategoria"));
                 list.add(categoria);
             }
         }catch(SQLException ex){
             ex.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public void agregarCategoria(Categoria categoria) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            PreparedStatement pstm=conn.prepareStatement(AGREGAR_CATEGORIA);
+            pstm.setString(1, categoria.getCategoria());
+            pstm.setString(2, categoria.getDescripcionCategoria());
+            
+            pstm.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
+        }
+    }
+
+    @Override
+    public void eliminarCategoria(int id) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            PreparedStatement pstm=conn.prepareStatement(ELIMINAR_CATEGORIA);
+            pstm.setInt(1, id);
+            pstm.executeUpdate();
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
     
 }

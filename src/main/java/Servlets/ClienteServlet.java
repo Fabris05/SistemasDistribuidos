@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Controladores.ClienteSQLData;
+import java.util.ArrayList;
 
 /**
  *
@@ -70,7 +71,24 @@ public class ClienteServlet extends HttpServlet {
                 request.setAttribute("listadoClientes", lista);
                 request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
                 break;
+            case "buscar":
+                String tipoDocumento=request.getParameter("cbxTipoDocumento");
+                String numDocumento=request.getParameter("txtNumDocumento");
                 
+                Cliente cliente=clienteData.findByDocumento(tipoDocumento, numDocumento);
+                
+                if(cliente!=null){
+                    List<Cliente> listadoClientes = new ArrayList<>();
+                    listadoClientes.add(cliente);
+                    request.setAttribute("listadoClientes", listadoClientes);
+                    request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
+                }else{
+                    request.setAttribute("mensajeError", "Cliente no encontrado");
+                    List<Cliente> listaC = clienteData.findAll();
+                    request.setAttribute("listadoClientes", listaC);
+                    request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
+                }
+                break;
             default:
                 break;
         }

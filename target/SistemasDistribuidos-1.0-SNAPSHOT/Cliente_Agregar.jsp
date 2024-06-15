@@ -4,6 +4,7 @@
     Author     : fabri
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -82,6 +83,13 @@
                             </div> 
                         </form>
                     </div>
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-${alertType} alert-dismissible fade show" role="alert">
+                            <i class="${alertIcon}"></i>
+                            ${message}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

@@ -11,11 +11,20 @@ package Entidades;
 public class Almacen {
     private int idAlmacen;
     private String almacen;
+    private String ubicacion;
     private String descripcion;
 
     public Almacen() {
     }
 
+    public Almacen(String almacen, String ubicacion, String descripcion) {
+        this.almacen = almacen;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+    }
+    
+    
+    
     public int getIdAlmacen() {
         return idAlmacen;
     }
@@ -32,6 +41,14 @@ public class Almacen {
         this.almacen = almacen;
     }
 
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+    
     public String getDescripcion() {
         return descripcion;
     }

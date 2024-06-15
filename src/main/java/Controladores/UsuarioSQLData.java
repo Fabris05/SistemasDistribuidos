@@ -7,7 +7,7 @@ package Controladores;
 import Conexion.ConexionDB;
 import Entidades.Usuario;
 import Interfaces.UsuarioData;
-import com.mysql.cj.protocol.Message;
+import java.net.http.HttpRequest;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -192,6 +194,42 @@ public class UsuarioSQLData implements UsuarioData{
               ex1.printStackTrace();
           }
         }
+    }
+
+    @Override
+    public boolean autenticarUsuario(HttpServletRequest request, String user, String pass) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected(); 
+        String passHash=this.hashPassword(pass);
+        try{
+            PreparedStatement pstm=conn.prepareStatement(VALIDAR_USUARIO);
+            pstm.setString(1, user);
+            ResultSet rs=pstm.executeQuery();
+            
+            if(rs.next()){
+                
+                String passDB=rs.getString("pass");
+                String nivelUsuario=rs.getString("nivel");
+                String estadoUsuario=rs.getString("estado");
+                String nombreUsuario=rs.getString("nombre");
+                
+                if(passHash.equals(passDB) && estadoUsuario.equals("activo")){
+                    
+                    Usuario nuser = new Usuario(user, nivelUsuario, nombreUsuario);              
+                    HttpSession session = request.getSession();
+                    session.invalidate();
+                    session = request.getSession(true);
+                    session.setAttribute("user", nuser);
+                    session.setMaxInactiveInterval(120);
+                    return true;
+                }
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
+        }
+        return false;
     }
     
 }

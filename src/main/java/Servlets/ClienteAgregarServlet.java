@@ -45,25 +45,31 @@ public class ClienteAgregarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String id_Cliente=request.getParameter("txtIdCliente");
         String nombreCliente=request.getParameter("txtNombreCliente");
         String apellidoCliente=request.getParameter("txtApellidoCliente");
         String tipoDocumentoCliente=request.getParameter("cbxTipoDocumentoCliente");
         String numDocumentoCLiente=request.getParameter("txtNumeroDocumentoCliente");
         String direccionCliente=request.getParameter("txtDireccionCliente");
-        String telefonoCliente=request.getParameter("txtTelefonoCliente");
-        String celularCliente=request.getParameter("txtCelularCliente");
-        
+        String telefonoCliente = request.getParameter("txtTelefonoCliente");
+        String celularCliente = request.getParameter("txtCelularCliente");
         String idClienteGenerado = clienteDATA.generarID();
-        System.out.println(idClienteGenerado);
-        Cliente cliente = new Cliente(idClienteGenerado, apellidoCliente, nombreCliente, direccionCliente, tipoDocumentoCliente, numDocumentoCLiente, telefonoCliente, celularCliente);
-        
-        clienteDATA.Guardar(cliente);
+        try {
+            Cliente cliente = new Cliente(idClienteGenerado, apellidoCliente, nombreCliente, direccionCliente, tipoDocumentoCliente, numDocumentoCLiente, telefonoCliente, celularCliente);
 
-        // Redireccionar a una página de éxito o mostrar un mensaje de éxito en la misma página
-        request.setAttribute("guardadoExitoso", true);
+            clienteDATA.Guardar(cliente);
+            request.setAttribute("alertType", "success");
+            request.setAttribute("alertIcon", "bi bi-check-circle");
+            request.setAttribute("message", "Cliente registrado exitosamente");
+            response.sendRedirect(request.getContextPath() + "/Agregar_Cliente?success=true");
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            request.setAttribute("alertType", "danger");
+            request.setAttribute("alertIcon", "bi bi-x-circle");
+            request.setAttribute("message", "Error - Cliente ya registrado");
+            response.sendRedirect(request.getContextPath() + "/Agregar_Cliente?success=true");
+        }
         
-        request.getRequestDispatcher("/Cliente_Agregar.jsp").forward(request, response);
         
         processRequest(request, response);
     }

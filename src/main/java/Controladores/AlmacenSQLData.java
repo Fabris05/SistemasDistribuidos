@@ -34,13 +34,36 @@ public class AlmacenSQLData implements AlmacenData{
                 
                 almacen.setIdAlmacen(rs.getInt("idAlmacen"));
                 almacen.setAlmacen(rs.getString("almacen"));
+                almacen.setUbicacion(rs.getString("ubicacion"));
+                almacen.setDescripcion(rs.getString("descripcion"));
                 
                 list.add(almacen);
             }
         }catch(SQLException ex){
             ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
         }
         return list;
+    }
+
+    @Override
+    public void agregarAlmacen(Almacen almacen) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            PreparedStatement pstm=conn.prepareStatement(AGREGAR_ALMACEN);
+            pstm.setString(1, almacen.getAlmacen());
+            pstm.setString(2, almacen.getUbicacion());
+            pstm.setString(3, almacen.getDescripcion());
+            
+            pstm.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
+        }
     }
     
 }

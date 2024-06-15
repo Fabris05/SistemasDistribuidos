@@ -17,6 +17,7 @@ Servlets\Login.class
 Entidades\Proveedor.class
 Controladores\ErrorLogin.class
 Servlets\UsuarioAgregarServlet.class
+Servlets\Categoria.class
 pom\xml\sistemasdistribuidos\JAXRSConfiguration.class
 Interfaces\ClienteData.class
 Entidades\Almacen.class
@@ -26,6 +27,7 @@ Servlets\ProveedorEditar.class
 Interfaces\AlmacenData.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class
 Controladores\ProveedorSQLData.class
+Servlets\Almacen.class
 Controladores\ClienteSQLData.class
 Controladores\ProductoSQLData.class
 Servlets\ProductoAgregarServlet.class

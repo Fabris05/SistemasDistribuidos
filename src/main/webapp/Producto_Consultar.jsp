@@ -87,5 +87,6 @@
                 </div>
             </div>
         </div>
+        <%@include file="/Views/Categoria/GestionarCategoria.jsp"%>
     </body>
 </html>

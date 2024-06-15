@@ -24,7 +24,7 @@
                             <div class="mb-3">
                                 <label for="modalPrecioProducto" class="form-label">Precio</label>
                                 <input type="number" step="0.01" class="form-control" id="modalPrecioProducto" name="precioProducto">
-                            </div>
+                            </div><
                             <div class="mb-3">
                                 <label for="modalCantidadProducto" class="form-label">Cantidad</label>
                                 <input type="number" class="form-control" id="modalCantidadProducto" name="cantidadProducto">

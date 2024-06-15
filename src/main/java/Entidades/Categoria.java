@@ -16,6 +16,11 @@ public class Categoria {
     public Categoria() {
     }
 
+    public Categoria(String categoria, String descripcionCategoria) {
+        this.categoria = categoria;
+        this.descripcionCategoria = descripcionCategoria;
+    }
+
     public int getIdCategoria() {
         return idCategoria;
     }
@@ -38,7 +43,5 @@ public class Categoria {
 
     public void setDescripcionCategoria(String descripcionCategoria) {
         this.descripcionCategoria = descripcionCategoria;
-    }
-    
-    
+    } 
 }

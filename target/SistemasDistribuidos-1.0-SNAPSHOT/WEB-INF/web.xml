@@ -44,6 +44,14 @@
         <servlet-name>ProveedorEditar</servlet-name>
         <servlet-class>Servlets.ProveedorEditar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Categoria</servlet-name>
+        <servlet-class>Servlets.Categoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Almacen</servlet-name>
+        <servlet-class>Servlets.Almacen</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -69,7 +77,7 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>Login</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
         <servlet-name>ProductoServlet</servlet-name>
@@ -90,6 +98,14 @@
     <servlet-mapping>
         <servlet-name>ProveedorEditar</servlet-name>
         <url-pattern>/ProveedorEditar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Categoria</servlet-name>
+        <url-pattern>/Categoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Almacen</servlet-name>
+        <url-pattern>/Almacen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

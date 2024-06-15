@@ -14,8 +14,13 @@ import java.util.List;
 public interface ClienteData {
     List<Cliente> findAll();
     Cliente findById(String id);
+    Cliente findByDocumento(String tipoDocumento, String numDocumento);
     void Editar(String id, Cliente cliente);
     void Guardar(Cliente cliente);
     void Eliminar(String Id);
     String generarID();
+    
+    //Consultas
+    
+    public final String BUSCAR_CLIENTE_DOCUMENTO="SELECT * FROM Cliente WHERE TipoDocumento=? and numeroDocumento=?;";
 }

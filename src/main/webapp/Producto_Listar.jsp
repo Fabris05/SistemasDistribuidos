@@ -18,16 +18,19 @@
             function ejecutarAccionConParams(codigoProducto, accionButton ) {
                 document.getElementById("accionButton").value = accionButton;
                 document.getElementById("codigoProducto").value = codigoProducto;
-                /*
-                if(accionButton==='editar'){
+                
+                if(accionButton==='verCategoria'){
                     var myModal = new bootstrap.Modal(document.getElementById('editModal'));
                     myModal.show();
+                
+                }else if (accionButton==='verAlmacen'){
+                    var myModal = new bootstrap.Modal(document.getElementById('editModalAlmacen'));
+                    myModal.show();
                 }else{
-                    document.getElementById("frm").submit();
+                    //document.getElementById("frm").submit();
                 }
-                */
-                document.getElementById("frm").submit();
-                console.log(idCliente);
+                
+                //document.getElementById("frm").submit();
                 console.log(accionButton);
             }
         </script>
@@ -43,10 +46,12 @@
         <div class=" d-flex container justify-content-center">
             <div class="col-12 mt-5">
                 <h4>Mis Productos<span class="badge badge-secondary"></span></h4>
-                
                 <form id="frm" name="frm" action="Productos" method="POST" class="mt-4">
                     <input type="hidden" id="codigoProducto" name="codigoProducto"/>
+                    <input type="hidden" id="codigoCategoria" name="codigoCategoria"/>
                     <input type="hidden" id="accionButton" name="accionButton"/>
+                    <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verCategoria');">Consultar Categoria</button>
+                    <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verAlmacen');">Consultar Almacén</button>
                     <table class="table table-striped text-center">
 
                         <td>Código Producto</td>
@@ -74,9 +79,10 @@
                 </form>
             </div>
         </div>
+        <%@include file="/Views/Categoria/GestionarCategoria.jsp" %>
+        <%@include file="/Views/Almacen/GestionarAlmacen.jsp"%>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>        
 
-        <%@include file="/Views/Producto/Producto_Editar_Modal.jsp" %>
     </body>
 </html>

@@ -46,8 +46,14 @@ public class ProductoServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         List<Producto> lista = productoData.findAll();
-        //-- Almacenarlo en una variable
         request.setAttribute("listadoProductos", lista);
+        
+        List<Categoria> listaCategoria=categoriaData.findCategorias();
+        request.setAttribute("listadoCategoria", listaCategoria);
+        
+        List<Almacen> listaAlmacen=almacenData.findAlmacenes();
+        request.setAttribute("listadoAlmacen", listaAlmacen);
+        
         request.getRequestDispatcher("/Producto_Listar.jsp").forward(request, response);
     }
 

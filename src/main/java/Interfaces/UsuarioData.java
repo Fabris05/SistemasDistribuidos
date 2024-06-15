@@ -6,6 +6,7 @@ package Interfaces;
 
 import Entidades.Usuario;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -18,10 +19,14 @@ public interface UsuarioData {
     void Editar(int id, Usuario usuario);
     String hashPassword(String pass);
     void Eliminar(int Id);
+    boolean autenticarUsuario(HttpServletRequest request, String user, String pass);
+    
+    
     // Apartado de consultas
     
     public final String BUSCAR_USUARIO_ID="SELECT * FROM Usuario WHERE Id_Usuario=?";
     public final String ELIMINAR_USUARIO_ID="DELETE FROM Usuario WHERE Id_Usuario=?";
     public final String EDITAR_USUARIO_ID="UPDATE Usuario SET Nombre=?, apellidos=?, usuario=?, pass=?, nivel=?, estado=? "
             + "WHERE Id_Usuario=?";
+    public final String VALIDAR_USUARIO="SELECT usuario, pass, nivel, estado, nombre FROM Usuario WHERE usuario= ?;";
 }

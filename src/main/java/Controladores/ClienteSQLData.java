@@ -210,4 +210,36 @@ public class ClienteSQLData implements ClienteData {
         
         
     }
+
+    @Override
+    public Cliente findByDocumento(String tipoDocumento, String numDocumento) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        
+        try{
+            PreparedStatement pstm=conn.prepareStatement(BUSCAR_CLIENTE_DOCUMENTO);
+            pstm.setString(1, tipoDocumento);
+            pstm.setString(2, numDocumento);
+            
+            ResultSet rs=pstm.executeQuery();
+            
+            if(rs.next()){
+                Cliente cliente=new Cliente();
+                cliente.setId(rs.getString("Id_Cliente"));
+                cliente.setApellidos(rs.getString("Apellidos"));
+                cliente.setNombres(rs.getString("Nombres"));
+                cliente.setDireccion(rs.getString("Direccion"));
+                cliente.setTipoDocumento(rs.getString("TipoDocumento"));
+                cliente.setNumeroDocumento(rs.getString("numeroDocumento"));
+                cliente.setTelefono(rs.getString("Telefono"));
+                cliente.setMovil(rs.getString("Movil"));
+                return cliente;
+            }else{
+                return null;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }
