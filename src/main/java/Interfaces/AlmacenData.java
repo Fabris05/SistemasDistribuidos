@@ -14,7 +14,9 @@ import java.util.List;
 public interface AlmacenData {
     List<Almacen> findAlmacenes();
     void agregarAlmacen(Almacen almacen);
+    void eliminarAlmacen(int id);
     
     public final String BUSCAR_ID_NOMBRE_ALMACEN="Select idAlmacen, almacen, ubicacion, descripcion FROM Almacen";
     public final String AGREGAR_ALMACEN="INSERT INTO Almacen (almacen, ubicacion,descripcion) VALUES (?, ?, ?);";
+    public final String ELIMINAR_ALMACEN="DELETE FROM Almacen WHERE idAlmacen=?";
 }

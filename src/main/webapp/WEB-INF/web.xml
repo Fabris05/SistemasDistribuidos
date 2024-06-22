@@ -52,6 +52,14 @@
         <servlet-name>Almacen</servlet-name>
         <servlet-class>Servlets.Almacen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PedidoL</servlet-name>
+        <servlet-class>Servlets.PedidoL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidosA</servlet-name>
+        <servlet-class>Servlets.PedidosA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes</url-pattern>
@@ -106,6 +114,14 @@
     <servlet-mapping>
         <servlet-name>Almacen</servlet-name>
         <url-pattern>/Almacen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidoL</servlet-name>
+        <url-pattern>/PedidoL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosA</servlet-name>
+        <url-pattern>/PedidosA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

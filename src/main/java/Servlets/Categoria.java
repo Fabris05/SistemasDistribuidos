@@ -36,10 +36,9 @@ public class Categoria extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
         
-        String accionButton=request.getParameter("accionButton");
-//        int idCategoria=Integer.parseInt(request.getParameter("codigoCategoria"));
+        String accionButton=request.getParameter("actionCategoria");
+        int idCategoria=Integer.parseInt(request.getParameter("idCategoria"));
         
         switch (accionButton) {
             case "agregar":
@@ -60,8 +59,8 @@ public class Categoria extends HttpServlet {
                 break;
             case "eliminar":
                 try{
-//                    categoriaData.eliminarCategoria(idCategoria);
-//                    response.sendRedirect(request.getContextPath() + "/Productos");
+                    categoriaData.eliminarCategoria(idCategoria);
+                    response.sendRedirect(request.getContextPath() + "/Productos");
                     //Agregar una alerta de categoria agregada
                 }catch(Exception ex){
                     ex.printStackTrace();

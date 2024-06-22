@@ -65,5 +65,21 @@ public class AlmacenSQLData implements AlmacenData{
             conexiondb.Discconet();
         }
     }
+
+    @Override
+    public void eliminarAlmacen(int id) {
+        ConexionDB conexiondb=new ConexionDB();
+        Connection conn=conexiondb.Connected();
+        
+        try{
+            PreparedStatement pstm= conn.prepareStatement(ELIMINAR_ALMACEN);
+            pstm.setInt(1, id);
+            pstm.executeUpdate();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            conexiondb.Discconet();
+        }
+    }
     
 }

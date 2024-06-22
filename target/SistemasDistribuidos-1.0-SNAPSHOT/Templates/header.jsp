@@ -88,8 +88,8 @@
                                 Pedidos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                <a class="dropdown-item" href="../SistemasDistribuidos/Clientes">Mis productos</a>
-                                <a class="dropdown-item" href="../SistemasDistribuidos/Cliente_Agregar.jsp">Añadir producto</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/PedidoL">Mis pedidos</a>
+                                <a class="dropdown-item" href="../SistemasDistribuidos/PedidosA">Añadir pedido</a>
                             </div>
                         </li>
                         <!-- DIV a ocultar -->

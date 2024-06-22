@@ -26,12 +26,14 @@ Controladores\AlmacenSQLData.class
 Servlets\ProveedorEditar.class
 Interfaces\AlmacenData.class
 pom\xml\sistemasdistribuidos\resources\JavaEE8Resource.class
+Servlets\PedidosA.class
 Controladores\ProveedorSQLData.class
 Servlets\Almacen.class
 Controladores\ClienteSQLData.class
 Controladores\ProductoSQLData.class
 Servlets\ProductoAgregarServlet.class
 Interfaces\ProveedorData.class
+Servlets\PedidoL.class
 Interfaces\CategoriaData.class
 Servlets\ClienteAgregarServlet.class
 Controladores\CategoriaSQLData.class

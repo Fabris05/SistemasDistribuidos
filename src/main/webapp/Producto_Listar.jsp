@@ -50,9 +50,12 @@
                     <input type="hidden" id="codigoProducto" name="codigoProducto"/>
                     <input type="hidden" id="codigoCategoria" name="codigoCategoria"/>
                     <input type="hidden" id="accionButton" name="accionButton"/>
-                    <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verCategoria');">Consultar Categoria</button>
-                    <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verAlmacen');">Consultar Almacén</button>
-                    <table class="table table-striped text-center">
+                    <div class="">
+                        <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verCategoria');">Consultar Categoria</button>
+                        <button type="button" class="btn btn-info" onclick="ejecutarAccionConParams('1','verAlmacen');">Consultar Almacén</button>
+                    </div>
+                    
+                    <table class="table table-striped text-center mt-5">
 
                         <td>Código Producto</td>
                         <td>Producto</td>
