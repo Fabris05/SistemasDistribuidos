@@ -36,13 +36,16 @@ public class Usuario {
         this.user = user;
         this.estado = estado;
     }
-    
-    public Usuario(String user, String nivel,String nombreUsuario ) {
+
+    public Usuario(String idUsuario, String nombreUsuario, String user, String nivel) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
         this.user = user;
         this.nivel = nivel;
-        this.nombreUsuario = nombreUsuario;
     }
-
+    
+    
+    
     public String getIdUsuario() {
         return idUsuario;
     }

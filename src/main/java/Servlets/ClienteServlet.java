@@ -89,6 +89,9 @@ public class ClienteServlet extends HttpServlet {
                     request.getRequestDispatcher("/Cliente_Listar.jsp").forward(request, response);
                 }
                 break;
+            case "refrescar":
+                response.sendRedirect(request.getContextPath() + "/Clientes");
+                break;
             default:
                 break;
         }

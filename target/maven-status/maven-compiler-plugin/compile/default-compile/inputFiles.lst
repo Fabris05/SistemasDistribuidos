@@ -1,4 +1,3 @@
-C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Controladores\ErrorLogin.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Controladores\AlmacenSQLData.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\Proveedor_Agregar.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\Almacen.java
@@ -6,6 +5,8 @@ C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\mai
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\UsuarioEditarServlet.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Entidades\Almacen.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Controladores\ClienteSQLData.java
+C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Entidades\Pedido.java
+C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Interfaces\PedidoData.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Controladores\ProductoSQLData.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Interfaces\ProductoData.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Interfaces\ProveedorData.java
@@ -34,6 +35,7 @@ C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\mai
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\UsuarioServlet.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\pom\xml\sistemasdistribuidos\JAXRSConfiguration.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\PedidoL.java
+C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Controladores\PedidoSQLData.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Entidades\Producto.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Entidades\Proveedor.java
 C:\Users\fabri\OneDrive\Imágenes\Documentos\NetBeansProjects\Project_SD\src\main\java\Servlets\ProductoEditar.java

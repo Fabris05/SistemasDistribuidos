@@ -208,6 +208,7 @@ public class UsuarioSQLData implements UsuarioData{
             
             if(rs.next()){
                 
+                String idUserDB=rs.getString("Id_Usuario");
                 String passDB=rs.getString("pass");
                 String nivelUsuario=rs.getString("nivel");
                 String estadoUsuario=rs.getString("estado");
@@ -215,7 +216,7 @@ public class UsuarioSQLData implements UsuarioData{
                 
                 if(passHash.equals(passDB) && estadoUsuario.equals("activo")){
                     
-                    Usuario nuser = new Usuario(user, nivelUsuario, nombreUsuario);              
+                    Usuario nuser = new Usuario(idUserDB, nombreUsuario, user, nivelUsuario);              
                     HttpSession session = request.getSession();
                     session.invalidate();
                     session = request.getSession(true);

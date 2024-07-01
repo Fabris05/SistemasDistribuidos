@@ -15,12 +15,12 @@ Entidades\Categoria.class
 Servlets\CerrarSesion.class
 Servlets\Login.class
 Entidades\Proveedor.class
-Controladores\ErrorLogin.class
 Servlets\UsuarioAgregarServlet.class
 Servlets\Categoria.class
 pom\xml\sistemasdistribuidos\JAXRSConfiguration.class
 Interfaces\ClienteData.class
 Entidades\Almacen.class
+Controladores\PedidoSQLData.class
 Servlets\Proveedores.class
 Controladores\AlmacenSQLData.class
 Servlets\ProveedorEditar.class
@@ -33,8 +33,10 @@ Controladores\ClienteSQLData.class
 Controladores\ProductoSQLData.class
 Servlets\ProductoAgregarServlet.class
 Interfaces\ProveedorData.class
+Entidades\Pedido.class
 Servlets\PedidoL.class
 Interfaces\CategoriaData.class
 Servlets\ClienteAgregarServlet.class
 Controladores\CategoriaSQLData.class
 Controladores\UsuarioSQLData.class
+Interfaces\PedidoData.class

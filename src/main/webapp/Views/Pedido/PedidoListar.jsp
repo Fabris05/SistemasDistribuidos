@@ -51,31 +51,27 @@
                     <input type="hidden" id="accionButton" name="accionButton"/>
                     <table class="table table-striped text-center mt-5">
 
-                        <td class="fw-bold">ID Pedidos</td>
+                        <td class="fw-bold">Código Pedido</td>
                         <td class="fw-bold">Cliente</td>
+                        <td class="fw-bold">N° Documento</td>
                         <td class="fw-bold">Fecha</td>
                         <td class="fw-bold">Sub Total</td>
+                        <td class="fw-bold">IGV</td>
                         <td class="fw-bold">Total Venta</td>
                         <td class="fw-bold">Acciones</td>
 
                         <c:forEach var="p" items="${requestScope.listadoPedidos}">
                             <tr>
-                                <td>${p.id}</td>
-                                <td>${p.nombres}</td>
-                                <td>${p.apellidos}</td>
-                                <td>${p.tipoDocumento}</td>
-                                <td>${p.numeroDocumento}</td>
-                                <td>${p.direccion}</td>
-                                <td>${p.telefono}</td>
-                                <td>${p.movil}</td>
+                                <td>${p.codigo}</td>
+                                <td>${p.cliente}</td>
+                                <td>${p.numDocumento}</td>
+                                <td>${p.fecha}</td>
+                                <td>${p.subTotal}</td>
+                                <td>${p.igv}</td>
+                                <td>${p.total}</td>
                                 <td>
                                     <button type="submit" class="btn btn-primary btn-sm bi-view" onclick="ejecutarAccionConParams('${p.id}', 'ver');">Ver</button>&nbsp;
                                     <button type="submit" class="btn btn-secondary btn-sm bi-edit" onclick="ejecutarAccionConParams('${p.id}', 'editar');">Editar</button>&nbsp;
-                                    <button type="submit" class="btn btn-danger btn-sm bi-delete" onclick="if (confirm('¿Está seguro de eliminar este registro')) {
-                                                ejecutarAccionConParams('${p.id}', 'eliminar');
-                                            } else {
-                                                return false;
-                                            }">&nbsp;Eliminar</button>
                                 </td>
                             </tr>
                         </c:forEach>

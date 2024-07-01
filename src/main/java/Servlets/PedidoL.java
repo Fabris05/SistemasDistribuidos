@@ -4,8 +4,12 @@
  */
 package Servlets;
 
+import Controladores.PedidoSQLData;
+import Entidades.Pedido;
+import Interfaces.PedidoData;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,18 +20,21 @@ import javax.servlet.http.HttpServletResponse;
  * @author fabri
  */
 public class PedidoL extends HttpServlet {
-
+    
+    PedidoData pedidoData=new PedidoSQLData();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getRequestDispatcher("/Views/Pedido/PedidoListar.jsp").forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        List<Pedido> listadoPedidos = pedidoData.findAllPedidos();
+        request.setAttribute("listadoPedidos", listadoPedidos);
+        request.getRequestDispatcher("/Views/Pedido/PedidoListar.jsp").forward(request, response);
     }
 
     @Override

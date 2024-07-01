@@ -15,6 +15,7 @@ public interface ClienteData {
     List<Cliente> findAll();
     Cliente findById(String id);
     Cliente findByDocumento(String tipoDocumento, String numDocumento);
+    int findIdByDocumento(String numDocumento);
     void Editar(String id, Cliente cliente);
     void Guardar(Cliente cliente);
     void Eliminar(String Id);
@@ -23,4 +24,5 @@ public interface ClienteData {
     //Consultas
     
     public final String BUSCAR_CLIENTE_DOCUMENTO="SELECT * FROM Cliente WHERE TipoDocumento=? and numeroDocumento=?;";
+    public final String BUSCAR_ID_CLIENTE_DOCUMENTO="SELECT Id_Cliente FROM Cliente WHERE numeroDocumento=?;";
 }

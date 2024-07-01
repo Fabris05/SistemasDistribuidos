@@ -18,6 +18,7 @@ public class Cliente {
     private String numeroDocumento;
     private String Telefono;
     private String Movil;
+    private String Email;
 
     public Cliente() {
     }
@@ -105,6 +106,14 @@ public class Cliente {
 
     public void setMovil(String Movil) {
         this.Movil = Movil;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     @Override

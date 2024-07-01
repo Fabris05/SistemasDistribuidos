@@ -233,6 +233,7 @@ public class ClienteSQLData implements ClienteData {
                 cliente.setNumeroDocumento(rs.getString("numeroDocumento"));
                 cliente.setTelefono(rs.getString("Telefono"));
                 cliente.setMovil(rs.getString("Movil"));
+                cliente.setEmail(rs.getString("email"));
                 return cliente;
             }else{
                 return null;
@@ -241,5 +242,27 @@ public class ClienteSQLData implements ClienteData {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public int findIdByDocumento(String numDocumento) {
+        ConexionDB conexiondb = new ConexionDB();
+        Connection conn = conexiondb.Connected();
+        int idCliente=0;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(BUSCAR_ID_CLIENTE_DOCUMENTO);
+            pstm.setString(1, numDocumento);
+            
+            ResultSet rs=pstm.executeQuery();
+            
+            if(rs.next()){
+                idCliente=rs.getInt("Id_Cliente");
+                return idCliente;
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return idCliente;
     }
 }

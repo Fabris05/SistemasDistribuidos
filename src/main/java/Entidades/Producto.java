@@ -28,6 +28,12 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(String codigoProducto, String nombreProducto, int cantidadProducto) {
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.cantidadProducto = cantidadProducto;
+    }
+
     public Producto(String codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto, Date caducidadProducto, int idProveedorProducto, int idAlmacenProducto, int idCategoriaProducto, String descripcionProducto) {
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
@@ -50,10 +56,6 @@ public class Producto {
         this.idCategoriaProducto = idCategoriaProducto;
         this.descripcionProducto = descripcionProducto;
     }
-
-   
-    
-    
     
     public String getIdProducto() {
         return idProducto;

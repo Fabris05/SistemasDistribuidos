@@ -83,6 +83,8 @@ public class ProductoSQLData implements ProductoData{
                 producto.setIdCategoriaProducto(rs.getInt("idCategoriaProducto"));
                 producto.setIdAlmacenProducto(rs.getInt("idAlmacenProducto"));
                 return producto;
+            }else{
+                return null;
             }
         }catch(SQLException ex){
             ex.printStackTrace();

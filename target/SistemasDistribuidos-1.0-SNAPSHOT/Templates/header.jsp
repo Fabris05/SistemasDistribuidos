@@ -116,7 +116,7 @@
                             <span class="badge bg-dark">${user.nombreUsuario}</span>
                             <c:choose>
                                 <c:when test="${user.nivel eq 'A'}">
-                                    <span class="badge bg-dark">Administrador</span>
+                                    <span class="badge bg-dark">${user.idUsuario} - Administrador</span>
                                 </c:when>
                                 <c:otherwise>
                                     <span class="badge bg-dark">Usuario</span>

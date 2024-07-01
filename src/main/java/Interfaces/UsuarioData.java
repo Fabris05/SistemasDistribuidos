@@ -28,5 +28,5 @@ public interface UsuarioData {
     public final String ELIMINAR_USUARIO_ID="DELETE FROM Usuario WHERE Id_Usuario=?";
     public final String EDITAR_USUARIO_ID="UPDATE Usuario SET Nombre=?, apellidos=?, usuario=?, pass=?, nivel=?, estado=? "
             + "WHERE Id_Usuario=?";
-    public final String VALIDAR_USUARIO="SELECT usuario, pass, nivel, estado, nombre FROM Usuario WHERE usuario= ?;";
+    public final String VALIDAR_USUARIO="SELECT Id_Usuario, usuario, pass, nivel, estado, nombre FROM Usuario WHERE usuario= ?;";
 }
